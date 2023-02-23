@@ -45,5 +45,21 @@ describe "my_transpose" do
     it "should not mutate original array" do 
         expect(arr1).not_to be(arr1.my_transpose)
     end
+end
 
+describe "stock_picker" do
+    subject(:stocks) { [100, 110, 105, 120, 115] }
+    context "if no profitable days exist" do
+        it "should return an empty array" do
+            expect(stock_picker([100, 90, 80, 70]).length).to eq(0)
+        end
+    end
+    context "if there are profitable days" do
+        it "should return an array containing two days" do
+            expect(stock_picker(stocks).length).to eq(2)
+        end
+    end
+    it "should return an array containing the two days resulting in max profit" do
+        expect(stock_picker(stocks)).to eq([0, 3])
+    end
 end

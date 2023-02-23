@@ -27,3 +27,24 @@ class Array
         result
     end
 end
+
+
+def stock_picker(arr)
+    profit = 0
+    indices = [0, 1]
+    arr.each_with_index do |num_1, idx_1|
+        arr.each_with_index do |num_2, idx_2|
+            #difference = num_1 + num_2
+            if idx_2 > idx_1 && num_2 - num_1 > profit
+                profit = num_2 - num_1
+                indices[0] = idx_1
+                indices[1] = idx_2
+            end
+        end
+    end
+    if profit == 0
+        return []
+    else
+        return indices
+    end
+end
