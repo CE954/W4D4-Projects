@@ -16,4 +16,14 @@ class Array
         end
         return result
     end
+
+    def my_transpose
+        result = Array.new(self.length) {Array.new(self.length)}
+        self.each_with_index do |row, i| 
+            row.each_with_index do |ele, j| 
+                result[j][i] = ele
+            end
+        end
+        result
+    end
 end

@@ -23,3 +23,27 @@ describe "two_sum" do
         expect(arr_2.two_sum[0][0]).to be < (arr_2.two_sum[0][1])
     end
 end
+
+describe "my_transpose" do 
+    subject(:arr1) { [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8]
+    ] }
+    it "should not use built-in #transpose" do 
+        expect(arr1).not_to receive(:transpose)
+    end
+
+    it "should return a transposed version of original matrix" do 
+        expect(arr1.my_transpose).to eq( [
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8]
+    ] )
+    end
+
+    it "should not mutate original array" do 
+        expect(arr1).not_to be(arr1.my_transpose)
+    end
+
+end
