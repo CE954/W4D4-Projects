@@ -63,3 +63,34 @@ describe "stock_picker" do
         expect(stock_picker(stocks)).to eq([0, 3])
     end
 end
+
+describe Towers do 
+    subject(:tower) { Towers.new(5) }
+    describe "initialize" do 
+        it "should accept a number of rings" do 
+            expect(tower.levels).to eq(5) 
+        end
+
+        it "should set up initial board" do 
+            expect(tower.board).to eq( [ 
+                [5,4,3,2,1],
+                [],
+                []
+            ])
+        end
+    end
+
+    describe "move" do 
+        it "should take in two integer arguments" do 
+
+        end
+
+        it "should modify the board" do 
+
+        end
+    end
+
+    describe "won?" do 
+        
+    end
+end
