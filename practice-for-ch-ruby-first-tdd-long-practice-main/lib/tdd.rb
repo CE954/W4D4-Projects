@@ -48,3 +48,10 @@ def stock_picker(arr)
         return indices
     end
 end
+
+class Towers
+    def initialize(levels)
+        @levels = levels
+        @board = 
+    end
+end

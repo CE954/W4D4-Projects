@@ -82,15 +82,30 @@ describe Towers do
 
     describe "move" do 
         it "should take in two integer arguments" do 
-
+            expect(tower.move(1, 2)).to_not raise_error
+            expect { tower.move(1) }.to raise_error(ArgumentError)
+            expect { tower.move }.to raise_error(ArgumentError)
         end
 
         it "should modify the board" do 
-
+            tower.move(0, 1)
+            expect(tower.board).to eq([ 
+                [5,4,3,2],
+                [1],
+                []
+            ])
         end
     end
 
     describe "won?" do 
-        
+        subject(:tower2) { Towers.new(1) } 
+        it "should return false if game is not over" do
+            expect(tower2.won?).to eq(false)
+        end
+
+        it "should return true if game is over" do
+            tower2.move(0, 2)
+            expect(tower2.won?).to eq(true)
+        end
     end
 end
