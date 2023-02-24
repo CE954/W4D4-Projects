@@ -82,7 +82,7 @@ describe Towers do
 
     describe "move" do 
         it "should take in two integer arguments" do 
-            expect(tower.move(1, 2)).to_not raise_error
+            expect { tower.move(1, 2) }.to_not raise_error
             expect { tower.move(1) }.to raise_error(ArgumentError)
             expect { tower.move }.to raise_error(ArgumentError)
         end

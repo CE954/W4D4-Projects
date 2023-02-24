@@ -50,8 +50,36 @@ def stock_picker(arr)
 end
 
 class Towers
+    attr_reader :levels, :board
     def initialize(levels)
         @levels = levels
-        @board = 
+        @board = Array.new(3) { Array.new }
+        (1..levels).each do |i|
+            @board[0] << (levels - i + 1)
+        end
+    end
+
+    def get_input
+        puts "Enter first index"
+        index_1 = gets.chomp.to_i
+        puts "Enter second index"
+        index_2 = gets.chomp.to_i
+        return [index_1,index_2]
+    end
+
+    def move(idx_1, idx_2)
+        @board[idx_2] << @board[idx_1].pop
+    end
+
+    def won? 
+        sorted = []
+        (1..levels).each do |i|
+            sorted << (levels - i + 1)
+        end
+        if @board[2] == sorted
+            return true 
+        else  
+            false 
+        end
     end
 end
